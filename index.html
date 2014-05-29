@@ -35,17 +35,27 @@
 
     <!-- tab bar -->
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#upload" data-toggle="tab">Upload</a></li>
-      <li>               <a href="#text"   data-toggle="tab">Text</a>  </li>
+      <li id="text_nav" class="active">
+        <a href="#text"   data-toggle="tab">Text</a>
+      </li>
+
+      <li id="upload_nav">
+        <a href="#upload" data-toggle="tab">Upload</a>
+      </li>
     </ul>
 
 
     <!-- tab panes -->
     <div class="tab-content">
-      <div id="upload" class="tab-pane active">
+      <div id="text" class="tab-pane active">
       </div>
 
-      <div id="text" class="tab-pane">
+      <div id="upload" class="tab-pane">
+        <form>
+
+          <input type="file" id="vimrc_upload" name="vimrc_upload[]" />
+
+        </form>
       </div>
     </div>
 
@@ -61,6 +71,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/scouter.js"></script>
+<script src="js/file.js"></script>
 
 
 </body>

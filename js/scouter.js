@@ -1,0 +1,5 @@
+
+
+var scouter = function (vimrc) {
+  
+};
