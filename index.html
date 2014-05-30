@@ -52,6 +52,11 @@
     <!-- tab panes -->
     <div class="tab-content">
       <div id="text" class="tab-pane active">
+        <form>
+          <label for="vimrc_text">.vimrc</label>
+          <textarea class="form-control" id="vimrc_text" cols="30" rows="10"></textarea>
+          <button id="text_btn" class="btn btn-primary" type="button">Scouter</button>
+        </form>
       </div>
 
       <div id="upload" class="tab-pane">
@@ -62,7 +67,7 @@
           <!-- show input -->
           <div class="input-group">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button" id="upload_dummy_btn">Your .vimrc</button>
+              <button class="btn btn-primary" type="button" id="upload_dummy_btn">Your .vimrc</button>
             </span>
             <input type="text" class="form-control" id="upload_dummy_input" readonly>
           </div>
@@ -89,6 +94,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/scouter.js"></script>
 <script src="js/file.js"></script>
+<script src="js/text.js"></script>
 
 
 </body>
