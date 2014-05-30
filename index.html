@@ -34,7 +34,7 @@
     <h1>Vim Scouter</h1>
 
     <!-- tab bar -->
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" style="margin-bottom: 15px;">
       <li id="text_nav" class="active">
         <a href="#text"   data-toggle="tab">Text</a>
       </li>
@@ -57,7 +57,16 @@
       <div id="upload" class="tab-pane">
         <form>
 
-          <input type="file" id="vimrc_upload" name="vimrc_upload[]" />
+          <!-- hidden input-->
+          <input type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
+          <!-- show input -->
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="upload_dummy_btn">Your .vimrc</button>
+            </span>
+            <input type="text" class="form-control" id="upload_dummy_input" readonly>
+          </div>
+
 
         </form>
       </div>
