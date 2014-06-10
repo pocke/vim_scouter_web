@@ -8,7 +8,7 @@ var scouter = function (vimrc) {
 // vim 戦闘力を表示
 var show_scouter = function (vim_power) {
   var text = 'あなたのVim戦闘力は<strong>' + vim_power + '</strong>です。';
-  var tag = $('<h3>').html(text);
+  var tag = $('<h3>').html(text).hide().fadeIn(500);
   $('#result').html(tag);
 
 
