@@ -37,60 +37,63 @@
 
 <div class="container">
   <div class="row">
-    <h1>Vim Scouter</h1>
-    <p>あなたのvim戦闘力はいくつ? &nbsp; <button class="btn btn-xs" data-toggle="modal" data-target="#about_modal">About</button></p>
+    <div class="col-xs-12">
 
-    <!-- tab bar -->
-    <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-      <li id="text_nav" class="active">
-        <a href="#text"   data-toggle="tab"><span class="octicon octicon-file-text"></span>&nbsp;Text</a>
-      </li>
+      <h1>Vim Scouter</h1>
+      <p>あなたのvim戦闘力はいくつ? &nbsp; <button class="btn btn-xs" data-toggle="modal" data-target="#about_modal">About</button></p>
 
-      <li id="upload_nav">
-        <a href="#upload" data-toggle="tab"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
-      </li>
+      <!-- tab bar -->
+      <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+        <li id="text_nav" class="active">
+          <a href="#text"   data-toggle="tab"><span class="octicon octicon-file-text"></span>&nbsp;Text</a>
+        </li>
 
-    </ul>
+        <li id="upload_nav">
+          <a href="#upload" data-toggle="tab"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
+        </li>
+
+      </ul>
 
 
-    <!-- tab panes -->
-    <div class="tab-content" style="padding-bottom: 10px">
-      <div id="text" class="tab-pane active">
-        <form>
-          <label for="vimrc_text">Your .vimrc</label>
-          <textarea class="form-control" id="vimrc_text" cols="30" rows="10"></textarea>
-          <button id="text_btn" class="btn btn-primary" type="button">Scouter</button>
-        </form>
+      <!-- tab panes -->
+      <div class="tab-content" style="padding-bottom: 10px">
+        <div id="text" class="tab-pane active">
+          <form>
+            <label for="vimrc_text">Your .vimrc</label>
+            <textarea class="form-control" id="vimrc_text" cols="30" rows="10"></textarea>
+            <button id="text_btn" class="btn btn-primary" type="button">Scouter</button>
+          </form>
+        </div>
+
+        <div id="upload" class="tab-pane">
+          <form>
+
+            <label for="vimrc_upload">Your .vimrc</label>
+            <!-- hidden input-->
+            <input type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
+            <!-- show input -->
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button" id="upload_dummy_btn"><span class="octicon octicon-file-directory"></span></button>
+              </span>
+              <input type="text" class="form-control" id="upload_dummy_input" readonly>
+            </div>
+
+
+          </form>
+        </div>
+
       </div>
 
-      <div id="upload" class="tab-pane">
-        <form>
 
-          <label for="vimrc_upload">Your .vimrc</label>
-          <!-- hidden input-->
-          <input type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
-          <!-- show input -->
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" id="upload_dummy_btn"><span class="octicon octicon-file-directory"></span></button>
-            </span>
-            <input type="text" class="form-control" id="upload_dummy_input" readonly>
-          </div>
+      <!-- result -->
+      <div id="result"></div>
 
+      <!-- Tweet Button -->
+      <a id="tweet_btn" class="btn btn-info pull-right" href="https://twitter.com/intent/tweet?original_referer=&text=Vim%20Scouter&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F" target="_blank"><span class="octicon octicon-comment"></span>&nbsp;Tweet</a>
 
-        </form>
-      </div>
 
     </div>
-
-
-    <!-- result -->
-    <div id="result"></div>
-
-    <!-- Tweet Button -->
-    <a id="tweet_btn" class="btn btn-info pull-right" href="https://twitter.com/intent/tweet?original_referer=&text=Vim%20Scouter&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F" target="_blank"><span class="octicon octicon-comment"></span>&nbsp;Tweet</a>
-
-
   </div>
 </div>
 
