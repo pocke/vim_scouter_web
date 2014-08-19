@@ -13,6 +13,6 @@ var show_scouter = function (vim_power) {
 
   //  for tweet button
   var tweet_btn = $('#tweet_btn');
-  var url = 'https://twitter.com/intent/tweet?original_referer=&text=' + encodeURIComponent('私のVim戦闘力は' + vim_power + 'です。') + '&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F';
+  var url = 'https://twitter.com/intent/tweet?hashtags=VimScouter&original_referer=&text=' + encodeURIComponent('私のVim戦闘力は' + vim_power + 'です。') + '&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F';
   tweet_btn.attr('href', url);
 };
