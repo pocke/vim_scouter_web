@@ -7,13 +7,10 @@
 
   Vue.filter('scouter', scouter);
 
-  var vue_data = {
-    text: '',
-  };
 
   var app = new Vue({
     el: '#vue-main',
-    data: vue_data,
+    data: {text: ''},
     methods: {
       tweet_url: function () {
         if (!this.text) {
@@ -23,20 +20,32 @@
         var power = scouter(this.text);
         return 'https://twitter.com/intent/tweet?hashtags=VimScouter&original_referer=&text=' + encodeURIComponent('私のVim戦闘力は' + power + 'です。') + '&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F';
       },
-      upload: function (e) {
+      uploadButton: function (e) {
         e.preventDefault();
         $('#vimrc_upload').click();
       },
-      read_file: function (e) {
-        var file = e.target.files[0];
+      onUpload: function (e) {
+        this.read_file(e.target.files[0]);
+      },
+      onDrop: function (e) {
+        this.cancelEvent(e);
+        this.read_file(e.dataTransfer.files[0]);
+      },
+      read_file: function (file) {
         var reader = new FileReader();
+        var self = this;
         reader.onload = function (x) {
-          vue_data.text = x.target.result;
+          self.text = x.target.result;
         };
         reader.readAsText(file, 'UTF-8');
       },
       fileSupport: function () {
         return !!(window.File && window.FileReader && window.FileList && window.Blob);
+      },
+      cancelEvent: function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
       },
     },
   });

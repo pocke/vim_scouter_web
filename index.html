@@ -25,13 +25,13 @@
       <h1 class="page-header">Vim Scouter  <small>あなたのvim戦闘力はいくつ?</small><button class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#about_modal" style="margin-top: 10px;">About</button></h1>
 
 
-      <form>
+      <form v-on="drop: onDrop($event), dragenter: cancelEvent($event), dragover: cancelEvent($event)">
         <div class="form-group">
           <label for="vimrc_text">Your .vimrc</label>
           <!-- Upload button -->
-          <a v-on="click: upload($event)" v-class="disabled: !fileSupport()" class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
+          <a v-on="click: uploadButton($event)" v-class="disabled: !fileSupport()" class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
           <!-- hidden input file-->
-          <input v-on="change: read_file($event)" type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
+          <input v-on="change: onUpload($event)" type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
           <!-- Text area -->
           <textarea v-model="text" class="form-control" cols="30" rows="10" id="vimrc_text"></textarea>
         </div>
