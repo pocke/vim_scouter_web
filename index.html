@@ -31,7 +31,7 @@
 <body>
 
 
-<div class="container">
+<div class="container" id="vue-main">
   <div class="row">
     <div class="col-xs-12">
 
@@ -49,7 +49,6 @@
         <li id="upload_nav">
           <a href="#upload" data-toggle="tab"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
         </li>
-
       </ul>
 
 
@@ -59,13 +58,11 @@
           <form>
             <div class="form-group">
               <label for="vimrc_text">Your .vimrc</label>
-              <textarea class="form-control" id="vimrc_text" cols="30" rows="10"></textarea>
-            </div>
-            <div class="form-group">
-              <button id="text_btn" class="btn btn-primary" type="button">Scouter</button>
+              <textarea v-model="text" class="form-control" cols="30" rows="10"></textarea>
             </div>
           </form>
         </div>
+
 
         <div id="upload" class="tab-pane">
           <form>
@@ -84,15 +81,13 @@
             </div>
           </form>
         </div>
-
       </div>
 
 
-      <!-- result -->
-      <div id="result">
 
+      <div class="panel panel-default panel-body" style="display: block;">
+        あなたのVim戦闘力は<strong v-text="text | scouter"></strong>です。
       </div>
-
     </div>
   </div>
 </div>
@@ -127,7 +122,6 @@
           Licensed <a href="http://www.opensource.org/licenses/mit-license.php" target="_blank">MIT</a>
         </p>
       </div>
-
     </div>
   </div>
 </div>
@@ -138,9 +132,12 @@
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/vue/dist/vue.min.js"></script>
+
+
 <script src="js/scouter.js"></script>
 <script src="js/file.js"></script>
-<script src="js/text.js"></script>
+<script src="js/vim_scouter.js"></script>
 
 
 </body>
