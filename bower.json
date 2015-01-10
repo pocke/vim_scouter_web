@@ -1,0 +1,20 @@
+{
+  "name": "vim_scouter",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pocke/vim_scouter_web",
+  "authors": [
+    "pocke <p.ck.t22@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "octicons": "~2.1.2"
+  }
+}
