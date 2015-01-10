@@ -16,7 +16,7 @@ puts
 
 
 files = %w[
-  bower_components/bootstrap/dist/css/bootstrap.css
+  bower_components/bootstrap/dist/css/bootstrap.min.css
   bower_components/bootstrap/dist/js/bootstrap.min.js
   bower_components/jquery/dist/jquery.min.js
   bower_components/octicons/octicons/octicons.css
@@ -44,4 +44,4 @@ end
 
 exec "git push --force origin #{`git symbolic-ref --short HEAD`.chomp}:gh-pages"
 
-exec 'git reset --hard @~'
+exec 'git reset @~'
