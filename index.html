@@ -29,7 +29,7 @@
         <div class="form-group">
           <label for="vimrc_text">Your .vimrc</label>
           <!-- Upload button -->
-          <a v-on="click: upload($event)" class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
+          <a v-on="click: upload($event)" v-class="disabled: !fileSupport()" class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
           <!-- hidden input file-->
           <input v-on="change: read_file($event)" type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
           <!-- Text area -->

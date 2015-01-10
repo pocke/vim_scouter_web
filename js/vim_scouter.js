@@ -35,6 +35,9 @@
         };
         reader.readAsText(file, 'UTF-8');
       },
+      fileSupport: function () {
+        return !!(window.File && window.FileReader && window.FileList && window.Blob);
+      },
     },
   });
 })();
