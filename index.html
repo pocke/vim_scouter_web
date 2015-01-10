@@ -5,11 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
   <title>Vim Scouter</title>
-
-
 
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="bower_components/octicons/octicons/octicons.css" rel="stylesheet">
@@ -19,80 +15,34 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-
-
 </head>
 
-
-
-
-
-
 <body>
-
-
-<div class="container">
+<div class="container" id="vue-main">
   <div class="row">
     <div class="col-xs-12">
 
       <h1 class="page-header">Vim Scouter  <small>あなたのvim戦闘力はいくつ?</small><button class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#about_modal" style="margin-top: 10px;">About</button></h1>
 
-      <!-- Tweet Button -->
-      <a id="tweet_btn" class="btn btn-info pull-right" href="https://twitter.com/intent/tweet?hashtags=VimScouter&original_referer=&text=Vim%20Scouter&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F" target="_blank"><span class="octicon octicon-comment"></span>&nbsp;Tweet</a>
 
-      <!-- tab bar -->
-      <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-        <li id="text_nav" class="active">
-          <a href="#text"   data-toggle="tab"><span class="octicon octicon-file-text"></span>&nbsp;Text</a>
-        </li>
-
-        <li id="upload_nav">
-          <a href="#upload" data-toggle="tab"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
-        </li>
-
-      </ul>
-
-
-      <!-- tab panes -->
-      <div class="tab-content" style="padding-bottom: 10px">
-        <div id="text" class="tab-pane active">
-          <form>
-            <div class="form-group">
-              <label for="vimrc_text">Your .vimrc</label>
-              <textarea class="form-control" id="vimrc_text" cols="30" rows="10"></textarea>
-            </div>
-            <div class="form-group">
-              <button id="text_btn" class="btn btn-primary" type="button">Scouter</button>
-            </div>
-          </form>
+      <form>
+        <div class="form-group">
+          <label for="vimrc_text">Your .vimrc</label>
+          <!-- Upload button -->
+          <a v-on="click: upload($event)" class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
+          <!-- hidden input file-->
+          <input v-on="change: read_file($event)" type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
+          <!-- Text area -->
+          <textarea v-model="text" class="form-control" cols="30" rows="10" id="vimrc_text"></textarea>
         </div>
+      </form>
 
-        <div id="upload" class="tab-pane">
-          <form>
-            <div class="form-group">
-              <label for="vimrc_upload">Your .vimrc</label>
-              <!-- hidden input-->
-              <input type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
 
-              <!-- show input -->
-              <div class="input-group">
-                <span class="input-group-btn">
-                  <button class="btn btn-primary" type="button" id="upload_dummy_btn"><span class="octicon octicon-file-directory"></span></button>
-                </span>
-                <input type="text" class="form-control" id="upload_dummy_input" readonly>
-              </div>
-            </div>
-          </form>
-        </div>
-
+      <div class="panel panel-default panel-body" style="display: block;">
+        あなたのVim戦闘力は<strong v-text="text | scouter"></strong>です。
+        <!-- Tweet Button -->
+        <a class="btn btn-info pull-right" v-attr="href: tweet_url()" target="_blank"><span class="octicon octicon-comment"></span>&nbsp;Tweet</a>
       </div>
-
-
-      <!-- result -->
-      <div id="result">
-
-      </div>
-
     </div>
   </div>
 </div>
@@ -111,36 +61,26 @@
       <div class="modal-body">
         <h4>Vim戦闘力とは</h4>
         <p><a href="http://vim-jp.org/vim-users-jp/2009/07/10/Hack-39.html" target="_blank">Vim-users.jp - Hack #39: Vimの戦闘力を計測する</a></p>
-
         <hr />
 
         <h4>Repository</h4>
-
         <p><span class="octicon octicon-mark-github"></span>&nbsp;<a href="https://github.com/pocke/vim_scouter_web" target="_blank">pocke / vim_scouter_web</a></p>
-
         <hr />
 
         <h4>License</h4>
-
         <p>
           Copyright&copy; 2014-2015 <a href="https://github.com/pocke/" target="_blank">pocke</a><br />
           Licensed <a href="http://www.opensource.org/licenses/mit-license.php" target="_blank">MIT</a>
         </p>
       </div>
-
     </div>
   </div>
 </div>
 
 
-
-
-
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="js/scouter.js"></script>
-<script src="js/file.js"></script>
-<script src="js/text.js"></script>
+<script src="bower_components/vue/dist/vue.min.js"></script>
 
-
+<script src="js/vim_scouter.js"></script>
 </body>

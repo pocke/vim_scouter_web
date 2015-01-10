@@ -23,6 +23,7 @@ files = %w[
   bower_components/octicons/octicons/octicons.eot
   bower_components/octicons/octicons/octicons.ttf
   bower_components/octicons/octicons/octicons.woff
+  bower_components/vue/dist/vue.min.js
 ]
 
 puts "start git add"
