@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+def exec(cmd)
+  puts cmd
+  system cmd
+end
+
 unless `git status --short`.chomp.empty?
   puts 'working directory does not clean!'
   exit 1
@@ -11,7 +16,7 @@ puts
 
 
 files = %w[
-  bower_components/bootstrap/dist/css/bootstrap.min.css
+  bower_components/bootstrap/dist/css/bootstrap.css
   bower_components/bootstrap/dist/js/bootstrap.min.js
   bower_components/jquery/dist/jquery.min.js
   bower_components/octicons/octicons/octicons.css
@@ -25,23 +30,18 @@ puts
 
 files.each do |f|
   cmd =  "git add --force #{f}"
-  unless system(cmd)
+  unless exec(cmd)
     puts "`#{cmd}` failed."
     exit 1
   end
 end
 
-puts 'start git commit'
-puts
-
-unless system 'git commit -m "deploy by script"'
+unless exec 'git commit -m "deploy by script"'
   puts 'git commit failed.'
   exit 1
 end
 
-puts 'start git push'
-puts
 
-system 'git push --force origin gh-pages'
+exec "git push --force origin #{`git symbolic-ref --short HEAD`.chomp}:gh-pages"
 
-system 'git reset --hard @~'
+exec 'git reset --hard @~'
