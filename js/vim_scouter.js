@@ -23,6 +23,18 @@
         var power = scouter(this.text);
         return 'https://twitter.com/intent/tweet?hashtags=VimScouter&original_referer=&text=' + encodeURIComponent('私のVim戦闘力は' + power + 'です。') + '&tw_p=tweetbutton&url=http%3A%2F%2Fpocke.github.io%2Fvim_scouter_web%2F';
       },
+      upload: function (e) {
+        e.preventDefault();
+        $('#vimrc_upload').click();
+      },
+      read_file: function (e) {
+        var file = e.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function (x) {
+          vue_data.text = x.target.result;
+        };
+        reader.readAsText(file, 'UTF-8');
+      },
     },
   });
 })();

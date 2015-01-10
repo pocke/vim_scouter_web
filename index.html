@@ -25,21 +25,17 @@
       <h1 class="page-header">Vim Scouter  <small>あなたのvim戦闘力はいくつ?</small><button class="btn btn-default btn-sm pull-right" data-toggle="modal" data-target="#about_modal" style="margin-top: 10px;">About</button></h1>
 
 
-
-      <div style="padding-bottom: 10px">
-        <form>
-          <div class="form-group">
-            <label for="vimrc_text">Your .vimrc</label>
-            <!-- Upload button -->
-            <a class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
-            <!-- hidden input file-->
-            <input type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
-            <!-- Text area -->
-            <textarea v-model="text" class="form-control" cols="30" rows="10" id="vimrc_text"></textarea>
-          </div>
-        </form>
-      </div>
-
+      <form>
+        <div class="form-group">
+          <label for="vimrc_text">Your .vimrc</label>
+          <!-- Upload button -->
+          <a v-on="click: upload($event)" class="btn btn-primary pull-right" target="_blank"><span class="octicon octicon-cloud-upload"></span>&nbsp;Upload</a>
+          <!-- hidden input file-->
+          <input v-on="change: read_file($event)" type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
+          <!-- Text area -->
+          <textarea v-model="text" class="form-control" cols="30" rows="10" id="vimrc_text"></textarea>
+        </div>
+      </form>
 
 
       <div class="panel panel-default panel-body" style="display: block;">
@@ -86,7 +82,5 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/vue/dist/vue.min.js"></script>
 
-<script src="js/scouter.js"></script>
-<script src="js/file.js"></script>
 <script src="js/vim_scouter.js"></script>
 </body>
