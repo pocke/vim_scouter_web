@@ -1,3 +1,0 @@
-[submodule "vendor/octicons"]
-	path = vendor/octicons
-	url = https://github.com/github/octicons.git
