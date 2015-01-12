@@ -33,7 +33,7 @@
           <!-- hidden input file-->
           <input v-on="change: onUpload($event)" type="file" id="vimrc_upload" name="vimrc_upload[]" style="display: none;"/>
           <!-- Text area -->
-          <textarea v-model="text" class="form-control" cols="30" rows="10" id="vimrc_text"></textarea>
+          <textarea v-model="text" class="form-control" placeholder="vimrcを直接入力するか、ファイルをドラッグ&ドロップしてください" cols="30" rows="10" id="vimrc_text"></textarea>
         </div>
       </form>
 
